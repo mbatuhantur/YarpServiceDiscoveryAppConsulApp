@@ -15,11 +15,9 @@ builder.Services.AddReverseProxy();
 
 builder.Services.AddSingleton<IConsulClient, ConsulClient>(p => new ConsulClient(consulConfig =>
 {
-  consulConfig.Address = new Uri("http://localhost:8500"); // local
-  //consulConfig.Address = new Uri("http://consul1:8500"); // Docker
+  consulConfig.Address = new Uri("http://localhost:5011"); // local
+  //consulConfig.Address = new Uri("http://consul1:5011"); // Docker
 }));
-
-
 
 builder.Services.AddSingleton<IProxyConfigProvider,ConsulProxyConfigProvider>();
 
